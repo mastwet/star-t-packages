@@ -37,8 +37,9 @@ jobs:
         shell: pwsh
         run: |
           $service = "${{ inputs.service }}"
-          if ([string]::IsNullOrEmpty($service)) { $service = "nginx" }
+          if ([string]::IsNullOrWhiteSpace($service)) { $service = "nginx" }
           $servicePath = "services/$service"
+          Write-Host "Service: '$service' -> Path: '$servicePath'"
 
           if (-not (Test-Path $servicePath)) {
             Write-Error "Service not found: $servicePath"
