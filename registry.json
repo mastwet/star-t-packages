@@ -101,12 +101,12 @@
       "icon": "redis.png",
       "versions": [
         {
-          "version": "7.2.7",
+          "version": "8.8.0",
           "platform": "win-x64",
-          "sizeMB": 12,
+          "sizeMB": 38,
           "url": {
-            "github": "https://github.com/YOUR_ORG/star-t-packages/releases/download/redis-7.2.7/redis-7.2.7-win-x64.star",
-            "gitee": "https://gitee.com/YOUR_ORG/star-t-packages/releases/download/redis-7.2.7/redis-7.2.7-win-x64.star"
+            "github": "https://github.com/YOUR_ORG/star-t-packages/releases/download/redis-8.8.0/redis-8.8.0-win-x64.star",
+            "gitee": "https://gitee.com/YOUR_ORG/star-t-packages/releases/download/redis-8.8.0/redis-8.8.0-win-x64.star"
           },
           "checksum": "sha256:TODO_CALCULATE_AFTER_FIRST_BUILD",
           "lts": false
