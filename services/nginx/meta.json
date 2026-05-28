@@ -1,0 +1,32 @@
+{
+  "id": "nginx",
+  "name": "Nginx",
+  "version": "1.27.5",
+  "platform": "win-x64",
+  "description": "高性能 HTTP 和反向代理服务器",
+  "category": "server",
+  "defaultPort": 80,
+  "dependencies": [],
+  "serviceRegistration": "nssm",
+  "configTemplate": "conf/nginx.conf.template",
+  "configFields": [
+    {
+      "key": "http_port",
+      "label": "HTTP 端口",
+      "template": "HTTP_PORT",
+      "default": "80",
+      "type": "number",
+      "range": "1-65535"
+    },
+    {
+      "key": "https_port",
+      "label": "HTTPS 端口",
+      "template": "HTTPS_PORT",
+      "default": "443",
+      "type": "number",
+      "range": "1-65535"
+    }
+  ],
+  "downloadUrl": "https://nginx.org/download/nginx-1.27.5.zip",
+  "checksum": "sha256:TODO"
+}

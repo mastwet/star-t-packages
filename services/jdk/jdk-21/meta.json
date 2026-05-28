@@ -1,0 +1,11 @@
+{
+  "id": "jdk-21",
+  "name": "JDK 21 (Eclipse Temurin)",
+  "version": "21.0.7",
+  "platform": "win-x64",
+  "description": "Eclipse Temurin JDK 21 LTS",
+  "category": "runtime",
+  "serviceRegistration": "none",
+  "downloadUrl": "https://api.adoptium.net/v3/binary/latest/21/ga/windows/x64/jdk/hotspot/normal/eclipse?project=jdk",
+  "checksum": "sha256:TODO"
+}

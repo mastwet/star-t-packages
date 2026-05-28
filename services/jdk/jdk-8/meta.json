@@ -1,0 +1,11 @@
+{
+  "id": "jdk-8",
+  "name": "JDK 8 (Eclipse Temurin)",
+  "version": "8u442",
+  "platform": "win-x64",
+  "description": "Eclipse Temurin JDK 8 LTS",
+  "category": "runtime",
+  "serviceRegistration": "none",
+  "downloadUrl": "https://api.adoptium.net/v3/binary/latest/8/ga/windows/x64/jdk/hotspot/normal/eclipse?project=jdk",
+  "checksum": "sha256:TODO"
+}

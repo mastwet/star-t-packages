@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "updated": "2026-05-29T00:00:00Z",
+  "services": [
+    {
+      "id": "jdk",
+      "name": "JDK (Eclipse Temurin)",
+      "category": "runtime",
+      "description": "Eclipse Temurin — 开源免费 JDK 发行版，长期支持",
+      "icon": "jdk.png",
+      "versions": [
+        {
+          "version": "21.0.7",
+          "platform": "win-x64",
+          "sizeMB": 45,
+          "url": {
+            "github": "https://github.com/YOUR_ORG/star-t-packages/releases/download/jdk-21.0.7/jdk-21.0.7-win-x64.star",
+            "gitee": "https://gitee.com/YOUR_ORG/star-t-packages/releases/download/jdk-21.0.7/jdk-21.0.7-win-x64.star"
+          },
+          "checksum": "sha256:TODO_CALCULATE_AFTER_FIRST_BUILD",
+          "lts": true,
+          "recommended": true
+        },
+        {
+          "version": "17.0.15",
+          "platform": "win-x64",
+          "sizeMB": 42,
+          "url": {
+            "github": "https://github.com/YOUR_ORG/star-t-packages/releases/download/jdk-17.0.15/jdk-17.0.15-win-x64.star",
+            "gitee": "https://gitee.com/YOUR_ORG/star-t-packages/releases/download/jdk-17.0.15/jdk-17.0.15-win-x64.star"
+          },
+          "checksum": "sha256:TODO_CALCULATE_AFTER_FIRST_BUILD",
+          "lts": true,
+          "recommended": false
+        },
+        {
+          "version": "8u442",
+          "platform": "win-x64",
+          "sizeMB": 38,
+          "url": {
+            "github": "https://github.com/YOUR_ORG/star-t-packages/releases/download/jdk-8u442/jdk-8u442-win-x64.star",
+            "gitee": "https://gitee.com/YOUR_ORG/star-t-packages/releases/download/jdk-8u442/jdk-8u442-win-x64.star"
+          },
+          "checksum": "sha256:TODO_CALCULATE_AFTER_FIRST_BUILD",
+          "lts": true,
+          "recommended": false
+        }
+      ]
+    },
+    {
+      "id": "tomcat",
+      "name": "Apache Tomcat",
+      "category": "server",
+      "description": "Java Web 应用服务器（Jakarta EE 10，适用于 Spring Boot 3+ 和新项目）",
+      "icon": "tomcat.png",
+      "dependencies": [
+        { "service": "jdk", "minVersion": "11", "recommended": "21" }
+      ],
+      "versions": [
+        {
+          "version": "10.1.41",
+          "platform": "win-x64",
+          "sizeMB": 13,
+          "url": {
+            "github": "https://github.com/YOUR_ORG/star-t-packages/releases/download/tomcat-10.1.41/tomcat-10.1.41-win-x64.star",
+            "gitee": "https://gitee.com/YOUR_ORG/star-t-packages/releases/download/tomcat-10.1.41/tomcat-10.1.41-win-x64.star"
+          },
+          "checksum": "sha256:TODO_CALCULATE_AFTER_FIRST_BUILD",
+          "lts": true
+        }
+      ]
+    },
+    {
+      "id": "tomcat9",
+      "name": "Apache Tomcat 9",
+      "category": "server",
+      "description": "Java Web 应用服务器（Servlet 4.0 / javax.*，适用于老项目）",
+      "icon": "tomcat.png",
+      "dependencies": [
+        { "service": "jdk", "minVersion": "8", "recommended": "17" }
+      ],
+      "versions": [
+        {
+          "version": "9.0.106",
+          "platform": "win-x64",
+          "sizeMB": 12,
+          "url": {
+            "github": "https://github.com/YOUR_ORG/star-t-packages/releases/download/tomcat9-9.0.106/tomcat9-9.0.106-win-x64.star",
+            "gitee": "https://gitee.com/YOUR_ORG/star-t-packages/releases/download/tomcat9-9.0.106/tomcat9-9.0.106-win-x64.star"
+          },
+          "checksum": "sha256:TODO_CALCULATE_AFTER_FIRST_BUILD",
+          "lts": false
+        }
+      ]
+    },
+    {
+      "id": "redis",
+      "name": "Redis",
+      "category": "cache",
+      "description": "高性能内存缓存和消息队列",
+      "icon": "redis.png",
+      "versions": [
+        {
+          "version": "7.2.7",
+          "platform": "win-x64",
+          "sizeMB": 12,
+          "url": {
+            "github": "https://github.com/YOUR_ORG/star-t-packages/releases/download/redis-7.2.7/redis-7.2.7-win-x64.star",
+            "gitee": "https://gitee.com/YOUR_ORG/star-t-packages/releases/download/redis-7.2.7/redis-7.2.7-win-x64.star"
+          },
+          "checksum": "sha256:TODO_CALCULATE_AFTER_FIRST_BUILD",
+          "lts": false
+        }
+      ]
+    },
+    {
+      "id": "mysql",
+      "name": "MySQL",
+      "category": "database",
+      "description": "全球最流行的开源关系型数据库",
+      "icon": "mysql.png",
+      "versions": [
+        {
+          "version": "8.4.5",
+          "platform": "win-x64",
+          "sizeMB": 210,
+          "url": {
+            "github": "https://github.com/YOUR_ORG/star-t-packages/releases/download/mysql-8.4.5/mysql-8.4.5-win-x64.star",
+            "gitee": "https://gitee.com/YOUR_ORG/star-t-packages/releases/download/mysql-8.4.5/mysql-8.4.5-win-x64.star"
+          },
+          "checksum": "sha256:TODO_CALCULATE_AFTER_FIRST_BUILD",
+          "lts": true,
+          "recommended": true
+        }
+      ]
+    },
+    {
+      "id": "nginx",
+      "name": "Nginx",
+      "category": "server",
+      "description": "高性能 HTTP 和反向代理服务器",
+      "icon": "nginx.png",
+      "versions": [
+        {
+          "version": "1.27.5",
+          "platform": "win-x64",
+          "sizeMB": 3,
+          "url": {
+            "github": "https://github.com/YOUR_ORG/star-t-packages/releases/download/nginx-1.27.5/nginx-1.27.5-win-x64.star",
+            "gitee": "https://gitee.com/YOUR_ORG/star-t-packages/releases/download/nginx-1.27.5/nginx-1.27.5-win-x64.star"
+          },
+          "checksum": "sha256:TODO_CALCULATE_AFTER_FIRST_BUILD",
+          "lts": false
+        }
+      ]
+    }
+  ]
+}

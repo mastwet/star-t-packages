@@ -1,0 +1,31 @@
+{
+  "id": "mysql",
+  "name": "MySQL",
+  "version": "8.4.5",
+  "platform": "win-x64",
+  "description": "全球最流行的开源关系型数据库",
+  "category": "database",
+  "defaultPort": 3306,
+  "dependencies": [],
+  "serviceRegistration": "self",
+  "configTemplate": "conf/my.ini.template",
+  "configFields": [
+    {
+      "key": "port",
+      "label": "端口",
+      "template": "MYSQL_PORT",
+      "default": "3306",
+      "type": "number",
+      "range": "1-65535"
+    },
+    {
+      "key": "root_password",
+      "label": "Root 密码",
+      "template": "MYSQL_ROOT_PASSWORD",
+      "default": "",
+      "type": "password"
+    }
+  ],
+  "downloadUrl": "https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-8.4.5-winx64.zip",
+  "checksum": "sha256:TODO"
+}

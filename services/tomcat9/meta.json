@@ -1,0 +1,34 @@
+{
+  "id": "tomcat9",
+  "name": "Apache Tomcat 9",
+  "version": "9.0.106",
+  "platform": "win-x64",
+  "description": "Java Web 应用服务器（Servlet 4.0 / javax.*，适用于老项目）",
+  "category": "server",
+  "defaultPort": 8080,
+  "dependencies": [
+    { "service": "jdk", "minVersion": "8", "recommended": "17" }
+  ],
+  "serviceRegistration": "self",
+  "configTemplate": "conf/server.xml.template",
+  "configFields": [
+    {
+      "key": "http_port",
+      "label": "HTTP 端口",
+      "template": "HTTP_PORT",
+      "default": "8080",
+      "type": "number",
+      "range": "1-65535"
+    },
+    {
+      "key": "shutdown_port",
+      "label": "Shutdown 端口",
+      "template": "SHUTDOWN_PORT",
+      "default": "8005",
+      "type": "number",
+      "range": "1-65535"
+    }
+  ],
+  "downloadUrl": "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.106/bin/apache-tomcat-9.0.106-windows-x64.zip",
+  "checksum": "sha256:TODO"
+}

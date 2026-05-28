@@ -1,0 +1,11 @@
+{
+  "id": "jdk-17",
+  "name": "JDK 17 (Eclipse Temurin)",
+  "version": "17.0.15",
+  "platform": "win-x64",
+  "description": "Eclipse Temurin JDK 17 LTS",
+  "category": "runtime",
+  "serviceRegistration": "none",
+  "downloadUrl": "https://api.adoptium.net/v3/binary/latest/17/ga/windows/x64/jdk/hotspot/normal/eclipse?project=jdk",
+  "checksum": "sha256:TODO"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "redis",
+  "name": "Redis",
+  "version": "7.2.7",
+  "platform": "win-x64",
+  "description": "高性能内存缓存和消息队列",
+  "category": "cache",
+  "defaultPort": 6379,
+  "dependencies": [],
+  "serviceRegistration": "self",
+  "configTemplate": "conf/redis.conf.template",
+  "configFields": [
+    {
+      "key": "port",
+      "label": "端口",
+      "template": "REDIS_PORT",
+      "default": "6379",
+      "type": "number",
+      "range": "1-65535"
+    },
+    {
+      "key": "maxmemory",
+      "label": "最大内存",
+      "template": "REDIS_MAXMEMORY",
+      "default": "256mb",
+      "type": "text"
+    },
+    {
+      "key": "password",
+      "label": "密码（留空无密码）",
+      "template": "REDIS_PASSWORD",
+      "default": "",
+      "type": "password"
+    }
+  ],
+  "downloadUrl": "https://github.com/redis-windows/redis-windows/releases/download/7.2.7/Redis-7.2.7-Windows-x64-with-Service.zip",
+  "checksum": "sha256:TODO"
+}

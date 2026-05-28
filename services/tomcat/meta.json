@@ -1,0 +1,42 @@
+{
+  "id": "tomcat",
+  "name": "Apache Tomcat",
+  "version": "10.1.41",
+  "platform": "win-x64",
+  "description": "Java Web 应用服务器（Jakarta EE 10）",
+  "category": "server",
+  "defaultPort": 8080,
+  "dependencies": [
+    { "service": "jdk", "minVersion": "11", "recommended": "21" }
+  ],
+  "serviceRegistration": "self",
+  "configTemplate": "conf/server.xml.template",
+  "configFields": [
+    {
+      "key": "http_port",
+      "label": "HTTP 端口",
+      "template": "HTTP_PORT",
+      "default": "8080",
+      "type": "number",
+      "range": "1-65535"
+    },
+    {
+      "key": "shutdown_port",
+      "label": "Shutdown 端口",
+      "template": "SHUTDOWN_PORT",
+      "default": "8005",
+      "type": "number",
+      "range": "1-65535"
+    },
+    {
+      "key": "ajp_port",
+      "label": "AJP 端口",
+      "template": "AJP_PORT",
+      "default": "8009",
+      "type": "number",
+      "range": "1-65535"
+    }
+  ],
+  "downloadUrl": "https://archive.apache.org/dist/tomcat/tomcat-10/v10.1.41/bin/apache-tomcat-10.1.41-windows-x64.zip",
+  "checksum": "sha256:TODO"
+}

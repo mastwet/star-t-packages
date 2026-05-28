@@ -1,0 +1,12 @@
+# Redis configuration template for STAR-T
+# Placeholders are replaced by STAR-T at install time
+
+port REDIS_PORT
+bind 127.0.0.1
+maxmemory REDIS_MAXMEMORY
+maxmemory-policy allkeys-lru
+save 900 1
+save 300 10
+save 60 10000
+dir ./data
+logfile "logs/redis.log"
