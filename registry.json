@@ -162,12 +162,12 @@
       "icon": "php.png",
       "versions": [
         {
-          "version": "8.3.21",
+          "version": "8.3.31",
           "platform": "win-x64",
-          "sizeMB": 30,
+          "sizeMB": 33,
           "url": {
-            "github": "https://github.com/YOUR_ORG/star-t-packages/releases/download/php-8.3.21/php-8.3.21-win-x64.star",
-            "gitee": "https://gitee.com/YOUR_ORG/star-t-packages/releases/download/php-8.3.21/php-8.3.21-win-x64.star"
+            "github": "https://github.com/YOUR_ORG/star-t-packages/releases/download/php-8.3.31/php-8.3.31-win-x64.star",
+            "gitee": "https://gitee.com/YOUR_ORG/star-t-packages/releases/download/php-8.3.31/php-8.3.31-win-x64.star"
           },
           "checksum": "sha256:TODO_CALCULATE_AFTER_FIRST_BUILD",
           "lts": false

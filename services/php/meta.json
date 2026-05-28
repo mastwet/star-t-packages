@@ -1,7 +1,7 @@
 {
   "id": "php",
   "name": "PHP",
-  "version": "8.3.21",
+  "version": "8.3.31",
   "platform": "win-x64",
   "description": "全球最流行的 Web 脚本语言（Thread Safe 版本，配合 Nginx 使用）",
   "category": "language",
@@ -40,7 +40,7 @@
       "type": "text"
     }
   ],
-  "downloadUrl": "https://windows.php.net/downloads/releases/php-8.3.21-Win32-vs16-x64.zip",
-  "downloadUrlNts": "https://windows.php.net/downloads/releases/php-8.3.21-nts-Win32-vs16-x64.zip",
+  "downloadUrl": "https://downloads.php.net/~windows/releases/php-8.3.31-Win32-vs16-x64.zip",
+  "downloadUrlNts": "https://downloads.php.net/~windows/releases/php-8.3.31-nts-Win32-vs16-x64.zip",
   "checksum": "sha256:TODO"
 }
