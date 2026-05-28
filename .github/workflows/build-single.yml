@@ -1,6 +1,8 @@
 name: Build Service Package
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       service:
@@ -35,6 +37,7 @@ jobs:
         shell: pwsh
         run: |
           $service = "${{ inputs.service }}"
+          if ([string]::IsNullOrEmpty($service)) { $service = "nginx" }
           $servicePath = "services/$service"
 
           if (-not (Test-Path $servicePath)) {
