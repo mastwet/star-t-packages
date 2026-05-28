@@ -16,6 +16,9 @@ on:
           - redis
           - mysql
           - nginx
+          - php
+          - postgresql
+          - rabbitmq
       version:
         description: 'Override version (leave empty to use meta.json default)'
         required: false
