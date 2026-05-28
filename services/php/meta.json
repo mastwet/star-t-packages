@@ -1,0 +1,46 @@
+{
+  "id": "php",
+  "name": "PHP",
+  "version": "8.3.21",
+  "platform": "win-x64",
+  "description": "全球最流行的 Web 脚本语言（Thread Safe 版本，配合 Nginx 使用）",
+  "category": "language",
+  "defaultPort": 9000,
+  "dependencies": [],
+  "serviceRegistration": "nssm",
+  "configTemplate": "conf/php.ini.template",
+  "configFields": [
+    {
+      "key": "cgi_port",
+      "label": "FastCGI 端口",
+      "template": "PHP_CGI_PORT",
+      "default": "9000",
+      "type": "number",
+      "range": "1-65535"
+    },
+    {
+      "key": "memory_limit",
+      "label": "内存限制",
+      "template": "PHP_MEMORY_LIMIT",
+      "default": "256M",
+      "type": "text"
+    },
+    {
+      "key": "upload_max_filesize",
+      "label": "上传文件大小限制",
+      "template": "PHP_UPLOAD_MAX_FILESIZE",
+      "default": "64M",
+      "type": "text"
+    },
+    {
+      "key": "timezone",
+      "label": "时区",
+      "template": "PHP_TIMEZONE",
+      "default": "Asia/Shanghai",
+      "type": "text"
+    }
+  ],
+  "downloadUrl": "https://windows.php.net/downloads/releases/php-8.3.21-Win32-vs16-x64.zip",
+  "downloadUrlNts": "https://windows.php.net/downloads/releases/php-8.3.21-nts-Win32-vs16-x64.zip",
+  "checksum": "sha256:TODO"
+}

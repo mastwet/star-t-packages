@@ -1,0 +1,65 @@
+[PHP]
+; STAR-T PHP Configuration Template
+
+engine = On
+short_open_tag = Off
+precision = 14
+output_buffering = 4096
+zlib.output_compression = Off
+
+; Paths
+extension_dir = "ext"
+; session.save_path = "/tmp"
+
+; Resource Limits
+max_execution_time = 60
+max_input_time = 60
+memory_limit = PHP_MEMORY_LIMIT
+
+; Error handling
+error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT
+display_errors = On
+display_startup_errors = On
+log_errors = On
+error_log = "logs/php_error.log"
+
+; Upload
+file_uploads = On
+upload_max_filesize = PHP_UPLOAD_MAX_FILESIZE
+max_file_uploads = 20
+
+; Data Handling
+post_max_size = PHP_UPLOAD_MAX_FILESIZE
+
+; Default charset
+default_charset = "UTF-8"
+
+; Date
+date.timezone = PHP_TIMEZONE
+
+; Common extensions (uncomment to enable)
+; extension=curl
+; extension=fileinfo
+; extension=gd
+; extension=gettext
+; extension=intl
+; extension=mbstring
+; extension=exif
+; extension=mysqli
+; extension=openssl
+; extension=pdo_mysql
+; extension=pdo_sqlite
+; extension=soap
+; extension=sockets
+; extension=sodium
+; extension=xsl
+; extension=zip
+
+[CLI Server]
+cli_server.color = On
+
+[Date]
+date.timezone = PHP_TIMEZONE
+
+[MySQLi]
+mysqli.default_port = 3306

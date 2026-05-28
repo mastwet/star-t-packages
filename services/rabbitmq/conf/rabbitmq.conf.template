@@ -1,0 +1,21 @@
+# STAR-T RabbitMQ Configuration Template
+
+# Networking
+listeners.tcp.default = RABBITMQ_AMQP_PORT
+
+# Management plugin
+management.listener.port = RABBITMQ_MANAGEMENT_PORT
+management.listener.ssl = false
+
+# Default user (guest can only connect from localhost)
+default_user = RABBITMQ_DEFAULT_USER
+default_pass = RABBITMQ_DEFAULT_PASS
+loopback_users.guest = true
+
+# Logging
+log.file.level = info
+log.dir = logs
+
+# Memory and disk limits (reasonable defaults for dev)
+vm_memory_high_watermark.relative = 0.6
+disk_free_limit.absolute = 1GB

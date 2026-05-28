@@ -1,0 +1,26 @@
+# STAR-T PostgreSQL Configuration Template
+
+listen_addresses = '127.0.0.1'
+port = PG_PORT
+max_connections = PG_MAX_CONNECTIONS
+shared_buffers = PG_SHARED_BUFFERS
+work_mem = 4MB
+maintenance_work_mem = 64MB
+
+# WAL
+wal_level = replica
+max_wal_size = 1GB
+min_wal_size = 80MB
+
+# Logging
+logging_collector = on
+log_directory = 'logs'
+log_filename = 'postgresql-%Y-%m-%d.log'
+log_statement = 'ddl'
+log_duration = off
+
+# Locale
+# These are set during initdb, not here
+
+# SSL (disabled by default for local dev)
+ssl = off

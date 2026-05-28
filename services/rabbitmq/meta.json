@@ -1,0 +1,50 @@
+{
+  "id": "rabbitmq",
+  "name": "RabbitMQ",
+  "version": "4.1.3",
+  "platform": "win-x64",
+  "description": "开源消息队列和消息代理（内含便携版 Erlang/OTP）",
+  "category": "queue",
+  "defaultPort": 5672,
+  "dependencies": [],
+  "serviceRegistration": "self",
+  "configTemplate": "conf/rabbitmq.conf.template",
+  "configFields": [
+    {
+      "key": "amqp_port",
+      "label": "AMQP 端口",
+      "template": "RABBITMQ_AMQP_PORT",
+      "default": "5672",
+      "type": "number",
+      "range": "1-65535"
+    },
+    {
+      "key": "management_port",
+      "label": "管理界面端口",
+      "template": "RABBITMQ_MANAGEMENT_PORT",
+      "default": "15672",
+      "type": "number",
+      "range": "1-65535"
+    },
+    {
+      "key": "default_user",
+      "label": "默认用户名",
+      "template": "RABBITMQ_DEFAULT_USER",
+      "default": "guest",
+      "type": "text"
+    },
+    {
+      "key": "default_pass",
+      "label": "默认密码",
+      "template": "RABBITMQ_DEFAULT_PASS",
+      "default": "guest",
+      "type": "password"
+    }
+  ],
+  "erlang": {
+    "version": "27.3.3",
+    "downloadUrl": "https://github.com/erlang/otp/releases/download/OTP-27.3.3/otp_win64_27.3.3.exe"
+  },
+  "downloadUrl": "https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.1.3/rabbitmq-server-windows-4.1.3.zip",
+  "checksum": "sha256:TODO"
+}

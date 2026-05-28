@@ -153,6 +153,66 @@
           "lts": false
         }
       ]
+    },
+    {
+      "id": "php",
+      "name": "PHP",
+      "category": "language",
+      "description": "全球最流行的 Web 脚本语言（Thread Safe，配合 Nginx）",
+      "icon": "php.png",
+      "versions": [
+        {
+          "version": "8.3.21",
+          "platform": "win-x64",
+          "sizeMB": 30,
+          "url": {
+            "github": "https://github.com/YOUR_ORG/star-t-packages/releases/download/php-8.3.21/php-8.3.21-win-x64.star",
+            "gitee": "https://gitee.com/YOUR_ORG/star-t-packages/releases/download/php-8.3.21/php-8.3.21-win-x64.star"
+          },
+          "checksum": "sha256:TODO_CALCULATE_AFTER_FIRST_BUILD",
+          "lts": false
+        }
+      ]
+    },
+    {
+      "id": "postgresql",
+      "name": "PostgreSQL",
+      "category": "database",
+      "description": "最先进的开源关系型数据库",
+      "icon": "postgresql.png",
+      "versions": [
+        {
+          "version": "17.5",
+          "platform": "win-x64",
+          "sizeMB": 325,
+          "url": {
+            "github": "https://github.com/YOUR_ORG/star-t-packages/releases/download/postgresql-17.5/postgresql-17.5-win-x64.star",
+            "gitee": "https://gitee.com/YOUR_ORG/star-t-packages/releases/download/postgresql-17.5/postgresql-17.5-win-x64.star"
+          },
+          "checksum": "sha256:TODO_CALCULATE_AFTER_FIRST_BUILD",
+          "lts": true
+        }
+      ]
+    },
+    {
+      "id": "rabbitmq",
+      "name": "RabbitMQ",
+      "category": "queue",
+      "description": "开源消息队列和消息代理（内含便携版 Erlang/OTP）",
+      "icon": "rabbitmq.png",
+      "versions": [
+        {
+          "version": "4.1.3",
+          "platform": "win-x64",
+          "sizeMB": 120,
+          "url": {
+            "github": "https://github.com/YOUR_ORG/star-t-packages/releases/download/rabbitmq-4.1.3/rabbitmq-4.1.3-win-x64.star",
+            "gitee": "https://gitee.com/YOUR_ORG/star-t-packages/releases/download/rabbitmq-4.1.3/rabbitmq-4.1.3-win-x64.star"
+          },
+          "checksum": "sha256:TODO_CALCULATE_AFTER_FIRST_BUILD",
+          "lts": false
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,46 @@
+{
+  "id": "postgresql",
+  "name": "PostgreSQL",
+  "version": "17.5",
+  "platform": "win-x64",
+  "description": "最先进的开源关系型数据库",
+  "category": "database",
+  "defaultPort": 5432,
+  "dependencies": [],
+  "serviceRegistration": "self",
+  "configTemplate": "conf/postgresql.conf.template",
+  "configFields": [
+    {
+      "key": "port",
+      "label": "端口",
+      "template": "PG_PORT",
+      "default": "5432",
+      "type": "number",
+      "range": "1-65535"
+    },
+    {
+      "key": "superuser_password",
+      "label": "超级用户密码",
+      "template": "PG_SUPERUSER_PASSWORD",
+      "default": "",
+      "type": "password"
+    },
+    {
+      "key": "max_connections",
+      "label": "最大连接数",
+      "template": "PG_MAX_CONNECTIONS",
+      "default": "100",
+      "type": "number",
+      "range": "1-10000"
+    },
+    {
+      "key": "shared_buffers",
+      "label": "共享缓冲区",
+      "template": "PG_SHARED_BUFFERS",
+      "default": "256MB",
+      "type": "text"
+    }
+  ],
+  "downloadUrl": "https://get.enterprisedb.com/postgresql/postgresql-17.5-1-windows-x64-binaries.zip",
+  "checksum": "sha256:TODO"
+}
