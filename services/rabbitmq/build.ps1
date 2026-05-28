@@ -7,7 +7,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $serviceDir = $PSScriptRoot
-$meta = Get-Content "$serviceDir/meta.json" -Raw | ConvertFrom-Json
+$meta = Get-Content "$serviceDir/meta.json" -Raw -Encoding UTF8 | ConvertFrom-Json
 $downloadUrl = $meta.downloadUrl -replace $meta.version, $Version
 $erlangUrl = $meta.erlang.downloadUrl
 $erlangVersion = $meta.erlang.version
@@ -56,7 +56,7 @@ New-Item -ItemType Directory -Path $erlangDir -Force | Out-Null
 Write-Host "Extracting Erlang with 7-Zip..."
 & $7z x $erlangExe -o"$erlangDir" -y | Out-Null
 
-# Delete erl.ini — this makes Erlang portable (confirmed by core dev @garazdawi)
+# Delete erl.ini â€?this makes Erlang portable (confirmed by core dev @garazdawi)
 $erlIni = Get-ChildItem $erlangDir -Recurse -Filter "erl.ini" -ErrorAction SilentlyContinue
 foreach ($ini in $erlIni) {
     Write-Host "Deleting $($ini.FullName) (portability fix)"
@@ -112,8 +112,11 @@ $meta | ConvertTo-Json -Depth 10 | Set-Content "$pkgDir\meta.json" -Encoding UTF
 Write-Host ""
 Write-Host "--- Step 4: Creating archive ---"
 $starPath = "$OutputDir/$packageName"
+$zipTemp = [System.IO.Path]::ChangeExtension($starPath, '.zip')
+if (Test-Path $zipTemp) { Remove-Item $zipTemp -Force }
 if (Test-Path $starPath) { Remove-Item $starPath -Force }
-Compress-Archive -Path "$pkgDir\*" -DestinationPath $starPath -Force
+Compress-Archive -Path "$pkgDir\*" -DestinationPath $zipTemp -Force
+Move-Item -Path $zipTemp -Destination $starPath -Force
 
 $size = [math]::Round((Get-Item $starPath).Length / 1MB, 1)
 Write-Host ""

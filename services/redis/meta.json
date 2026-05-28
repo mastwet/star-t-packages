@@ -1,7 +1,7 @@
 {
   "id": "redis",
   "name": "Redis",
-  "version": "7.2.7",
+  "version": "8.8.0",
   "platform": "win-x64",
   "description": "高性能内存缓存和消息队列",
   "category": "cache",
@@ -33,6 +33,6 @@
       "type": "password"
     }
   ],
-  "downloadUrl": "https://github.com/redis-windows/redis-windows/releases/download/7.2.7/Redis-7.2.7-Windows-x64-with-Service.zip",
+  "downloadUrl": "https://github.com/redis-windows/redis-windows/releases/download/8.8.0/Redis-8.8.0-Windows-x64-msys2-with-Service.zip",
   "checksum": "sha256:TODO"
 }

@@ -7,7 +7,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $serviceDir = $PSScriptRoot
-$meta = Get-Content "$serviceDir/meta.json" -Raw | ConvertFrom-Json
+$meta = Get-Content "$serviceDir/meta.json" -Raw -Encoding UTF8 | ConvertFrom-Json
 $downloadUrl = $meta.downloadUrl -replace $meta.version, $Version
 $packageName = "redis-$Version-win-x64.star"
 $tempDir = "$serviceDir/_temp"
@@ -61,8 +61,11 @@ $meta | ConvertTo-Json -Depth 10 | Set-Content "$pkgDir\meta.json" -Encoding UTF
 # Create .star archive
 Write-Host "Packing $packageName..."
 $starPath = "$OutputDir/$packageName"
+$zipTemp = [System.IO.Path]::ChangeExtension($starPath, '.zip')
+if (Test-Path $zipTemp) { Remove-Item $zipTemp -Force }
 if (Test-Path $starPath) { Remove-Item $starPath -Force }
-Compress-Archive -Path "$pkgDir\*" -DestinationPath $starPath -Force
+Compress-Archive -Path "$pkgDir\*" -DestinationPath $zipTemp -Force
+Move-Item -Path $zipTemp -Destination $starPath -Force
 
 $size = [math]::Round((Get-Item $starPath).Length / 1MB, 1)
 Write-Host "Done: $starPath ($size MB)"
