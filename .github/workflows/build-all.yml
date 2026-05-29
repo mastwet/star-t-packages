@@ -1,4 +1,4 @@
-name: Build All Services
+name: Build All Services # v2
 
 on:
   push:
