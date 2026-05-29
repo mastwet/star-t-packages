@@ -5,7 +5,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-
+$ProgressPreference = 'SilentlyContinue'
 $serviceDir = $PSScriptRoot
 $meta = Get-Content "$serviceDir/meta.json" -Raw -Encoding UTF8 | ConvertFrom-Json
 $downloadUrl = $meta.downloadUrl -replace $meta.version, $Version
@@ -23,7 +23,19 @@ if (-not (Test-Path $OutputDir)) { New-Item -ItemType Directory -Path $OutputDir
 $zipPath = "$tempDir/tomcat.zip"
 Write-Host "Downloading: $downloadUrl"
 New-Item -ItemType Directory -Path $tempDir -Force | Out-Null
-Invoke-WebRequest -Uri $downloadUrl -OutFile $zipPath -UseBasicParsing
+    # Download with retry
+    $maxRetries = 3
+    for ($attempt = 1; $attempt -le $maxRetries; $attempt++) {
+        try {
+            Write-Host "Download attempt $attempt/$maxRetries..."
+            Invoke-WebRequest -Uri $downloadUrl -OutFile $zipPath -UseBasicParsing
+            break
+        } catch {
+            if ($attempt -eq $maxRetries) { throw }
+            Write-Host "Download failed, retrying in $($attempt * 10) seconds..."
+            Start-Sleep -Seconds ($attempt * 10)
+        }
+    }
 
 # Extract
 Write-Host "Extracting..."

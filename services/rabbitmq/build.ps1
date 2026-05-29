@@ -5,7 +5,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-
+$ProgressPreference = 'SilentlyContinue'
 $serviceDir = $PSScriptRoot
 $meta = Get-Content "$serviceDir/meta.json" -Raw -Encoding UTF8 | ConvertFrom-Json
 $downloadUrl = $meta.downloadUrl -replace $meta.version, $Version
@@ -27,7 +27,19 @@ Write-Host ""
 Write-Host "--- Step 1: Erlang OTP ---"
 $erlangExe = "$tempDir/erlang.exe"
 Write-Host "Downloading Erlang installer..."
-Invoke-WebRequest -Uri $erlangUrl -OutFile $erlangExe -UseBasicParsing
+    # Download with retry
+    $maxRetries = 3
+    for ($attempt = 1; $attempt -le $maxRetries; $attempt++) {
+        try {
+            Write-Host "Download attempt $attempt/$maxRetries..."
+            Invoke-WebRequest -Uri $erlangUrl -OutFile $erlangExe -UseBasicParsing
+            break
+        } catch {
+            if ($attempt -eq $maxRetries) { throw }
+            Write-Host "Download failed, retrying in $($attempt * 10) seconds..."
+            Start-Sleep -Seconds ($attempt * 10)
+        }
+    }
 
 # Erlang NSIS installer can be extracted with 7-Zip
 # Check if 7z is available
@@ -70,7 +82,19 @@ Write-Host ""
 Write-Host "--- Step 2: RabbitMQ Server ---"
 $rabbitZip = "$tempDir/rabbitmq.zip"
 Write-Host "Downloading: $downloadUrl"
-Invoke-WebRequest -Uri $downloadUrl -OutFile $rabbitZip -UseBasicParsing
+    # Download with retry
+    $maxRetries = 3
+    for ($attempt = 1; $attempt -le $maxRetries; $attempt++) {
+        try {
+            Write-Host "Download attempt $attempt/$maxRetries..."
+            Invoke-WebRequest -Uri $downloadUrl -OutFile $rabbitZip -UseBasicParsing
+            break
+        } catch {
+            if ($attempt -eq $maxRetries) { throw }
+            Write-Host "Download failed, retrying in $($attempt * 10) seconds..."
+            Start-Sleep -Seconds ($attempt * 10)
+        }
+    }
 
 Write-Host "Extracting RabbitMQ..."
 Expand-Archive -Path $rabbitZip -DestinationPath $tempDir -Force

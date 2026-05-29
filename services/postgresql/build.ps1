@@ -22,7 +22,19 @@ $zipPath = "$tempDir/postgresql.zip"
 Write-Host "Downloading (large file, ~325MB): $downloadUrl"
 New-Item -ItemType Directory -Path $tempDir -Force | Out-Null
 $ProgressPreference = 'SilentlyContinue'
-Invoke-WebRequest -Uri $downloadUrl -OutFile $zipPath -UseBasicParsing -MaximumRedirection 5
+    # Download with retry
+    $maxRetries = 3
+    for ($attempt = 1; $attempt -le $maxRetries; $attempt++) {
+        try {
+            Write-Host "Download attempt $attempt/$maxRetries..."
+            Invoke-WebRequest -Uri $downloadUrl -OutFile $zipPath -UseBasicParsing -MaximumRedirection 5
+            break
+        } catch {
+            if ($attempt -eq $maxRetries) { throw }
+            Write-Host "Download failed, retrying in $($attempt * 10) seconds..."
+            Start-Sleep -Seconds ($attempt * 10)
+        }
+    }
 
 # Extract
 Write-Host "Extracting..."
