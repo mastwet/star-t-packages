@@ -1,0 +1,63 @@
+name: Build All Services
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        service:
+          - jdk-8
+          - jdk-17
+          - jdk-21
+          - tomcat
+          - tomcat9
+          - redis
+          - mysql
+          - nginx
+          - php
+          - postgresql
+          - rabbitmq
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build .star package
+        id: build
+        shell: pwsh
+        run: |
+          $service = "${{ matrix.service }}"
+          $servicePath = "services/$service"
+
+          if (-not (Test-Path $servicePath)) {
+            Write-Error "Service not found: $servicePath"
+            exit 1
+          }
+
+          $meta = Get-Content "$servicePath/meta.json" -Raw | ConvertFrom-Json
+          $version = $meta.version
+          $packageName = "$($meta.id)-$version-$($meta.platform).star"
+
+          Write-Host "Building: $packageName"
+          Write-Host "Source:   $servicePath"
+
+          & "$servicePath/build.ps1" -Version $version -OutputDir "dist"
+
+          $file = Get-ChildItem "dist/*.star" | Select-Object -First 1
+          $hash = (Get-FileHash $file.FullName -Algorithm SHA256).Hash.ToLower()
+          Write-Host "SHA256: sha256:$hash"
+          Write-Host "Size:   $([math]::Round($file.Length / 1MB, 1)) MB"
+
+          echo "package_name=$($file.Name)" >> $env:GITHUB_OUTPUT
+          echo "sha256=sha256:$hash" >> $env:GITHUB_OUTPUT
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.build.outputs.package_name }}
+          path: dist/*.star
+          retention-days: 30
