@@ -6,6 +6,6 @@
   "description": "Eclipse Temurin JDK 21 LTS",
   "category": "runtime",
   "serviceRegistration": "none",
-  "downloadUrl": "https://api.adoptium.net/v3/binary/latest/21/ga/windows/x64/jdk/hotspot/normal/eclipse?project=jdk",
+  "downloadUrl": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.7%2B6/OpenJDK21U-jdk_x64_windows_hotspot_21.0.7_6.zip",
   "checksum": "sha256:TODO"
 }

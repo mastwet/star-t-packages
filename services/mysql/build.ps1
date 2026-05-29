@@ -29,7 +29,7 @@ $ProgressPreference = 'SilentlyContinue'
     for ($attempt = 1; $attempt -le $maxRetries; $attempt++) {
         try {
             Write-Host "Download attempt $attempt/$maxRetries..."
-            Invoke-WebRequest -Uri $downloadUrl -OutFile $zipPath -UseBasicParsing -MaximumRedirection 5
+            Invoke-WebRequest -Uri $downloadUrl -OutFile $zipPath -UseBasicParsing -MaximumRedirection 5 -TimeoutSec 600
             break
         } catch {
             if ($attempt -eq $maxRetries) { throw }
