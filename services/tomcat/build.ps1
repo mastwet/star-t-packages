@@ -49,7 +49,7 @@ Copy-Item -Path "$serviceDir\conf\*" -Destination "$pkgDir\conf" -Force -ErrorAc
 
 # Copy scripts
 New-Item -ItemType Directory -Path "$pkgDir\scripts" -Force | Out-Null
-Copy-Item -Path "$serviceDir\scripts\*" -Destination "$pkgDir\scripts" -Force
+Copy-Item -Path "$serviceDir\scripts\*" -Destination "$pkgDir\scripts" -Force -ErrorAction SilentlyContinue
 
 # Write meta.json with current version
 $meta.version = $Version

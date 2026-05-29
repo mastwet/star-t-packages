@@ -98,11 +98,11 @@ Copy-Item -Path "$($rabbitDir.FullName)" -Destination "$pkgDir\rabbitmq" -Recurs
 
 # Config templates
 New-Item -ItemType Directory -Path "$pkgDir\conf" -Force | Out-Null
-Copy-Item -Path "$serviceDir\conf\*" -Destination "$pkgDir\conf" -Force
+Copy-Item -Path "$serviceDir\conf\*" -Destination "$pkgDir\conf" -Force -ErrorAction SilentlyContinue
 
 # Scripts
 New-Item -ItemType Directory -Path "$pkgDir\scripts" -Force | Out-Null
-Copy-Item -Path "$serviceDir\scripts\*" -Destination "$pkgDir\scripts" -Force
+Copy-Item -Path "$serviceDir\scripts\*" -Destination "$pkgDir\scripts" -Force -ErrorAction SilentlyContinue
 
 # meta.json
 $meta.version = $Version

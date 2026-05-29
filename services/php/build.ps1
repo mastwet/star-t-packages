@@ -49,11 +49,11 @@ Copy-Item -Path "$tempDir\php\*" -Destination "$pkgDir\bin" -Recurse -Force
 
 # Copy config templates
 New-Item -ItemType Directory -Path "$pkgDir\conf" -Force | Out-Null
-Copy-Item -Path "$serviceDir\conf\*" -Destination "$pkgDir\conf" -Force
+Copy-Item -Path "$serviceDir\conf\*" -Destination "$pkgDir\conf" -Force -ErrorAction SilentlyContinue
 
 # Copy scripts
 New-Item -ItemType Directory -Path "$pkgDir\scripts" -Force | Out-Null
-Copy-Item -Path "$serviceDir\scripts\*" -Destination "$pkgDir\scripts" -Force
+Copy-Item -Path "$serviceDir\scripts\*" -Destination "$pkgDir\scripts" -Force -ErrorAction SilentlyContinue
 
 # Write meta.json
 $meta.version = $Version
